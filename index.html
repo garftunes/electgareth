@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gareth Walter for Larkspur City Council</title>
+<meta name="description" content="Gareth Walter is running for Larkspur City Council — a neighbor, father, and nonprofit founder focused on revitalizing Magnolia Avenue, flood and fire resilience, and open city government.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest: #1E3B2C;
+    --forest-deep: #142A1F;
+    --paper: #F7F5EF;
+    --paper-warm: #F1EDE2;
+    --brass: #B98A3E;
+    --brass-light: #D9AE6C;
+    --navy: #23324A;
+    --fog: #DEE1D6;
+    --ink: #1B2420;
+    --ink-soft: #4B564E;
+    --white: #FFFFFF;
+    --max-w: 1120px;
+    --radius: 2px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body{
+    margin: 0;
+    font-family: 'Public Sans', -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--forest-deep);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  a{ color: inherit; }
+  img{ max-width: 100%; display: block; }
+
+  .wrap{
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Skip link */
+  .skip-link{
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--forest);
+    color: var(--paper);
+    padding: 12px 20px;
+    z-index: 1000;
+  }
+  .skip-link:focus{ left: 12px; top: 12px; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline: 3px solid var(--brass);
+    outline-offset: 3px;
+  }
+
+  /* ===== NAV ===== */
+  .nav{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid rgba(30,59,44,0.14);
+  }
+  .nav-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .nav-name{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--forest-deep);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .nav-name .surname{ color: var(--brass); }
+  .nav-links{
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a{
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .nav-links a:hover{ border-color: var(--brass); }
+  .nav-cta{
+    background: var(--forest);
+    color: var(--paper) !important;
+    padding: 10px 20px !important;
+    border-radius: var(--radius);
+    border-bottom: none !important;
+  }
+  .nav-cta:hover{ background: var(--forest-deep); }
+  .nav-toggle{
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .nav-toggle span{
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--forest-deep);
+    margin: 5px 0;
+  }
+
+  @media (max-width: 780px){
+    .nav-links{
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--paper);
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid rgba(30,59,44,0.14);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+    }
+    .nav-links.open{ display: flex; }
+    .nav-links a{
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(30,59,44,0.08);
+      width: 100%;
+    }
+    .nav-cta{ margin: 12px 24px; text-align: center; width: calc(100% - 48px); }
+    .nav-toggle{ display: block; }
+  }
+
+  /* ===== CONTOUR SIGNATURE MOTIF ===== */
+  .contour-divider{
+    width: 100%;
+    height: 46px;
+    display: block;
+    color: var(--forest);
+  }
+  .contour-divider.flip{ transform: scaleY(-1); }
+
+  /* ===== HERO ===== */
+  .hero{
+    position: relative;
+    background: var(--forest-deep);
+    color: var(--paper);
+    overflow: hidden;
+  }
+  .hero-contours{
+    position: absolute;
+    inset: 0;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .hero-inner{
+    position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 72px 24px 96px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brass-light);
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before{
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--brass-light);
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+    color: var(--paper);
+    line-height: 1.06;
+    font-weight: 600;
+  }
+  .hero h1 em{
+    font-style: italic;
+    color: var(--brass-light);
+    font-weight: 500;
+  }
+  .hero-tagline{
+    margin-top: 22px;
+    font-size: 1.1rem;
+    color: #D6DED8;
+    max-width: 46ch;
+  }
+  .ballot-tag{
+    display: inline-block;
+    margin-top: 26px;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--forest-deep);
+    background: var(--brass-light);
+    padding: 8px 14px;
+    border-radius: var(--radius);
+  }
+  .hero-actions{
+    margin-top: 34px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: 2px solid transparent;
+    transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+  }
+  .btn:hover{ transform: translateY(-1px); }
+  .btn-primary{ background: var(--brass); color: var(--forest-deep); }
+  .btn-primary:hover{ background: var(--brass-light); }
+  .btn-ghost{ border-color: rgba(247,245,239,0.4); color: var(--paper); }
+  .btn-ghost:hover{ border-color: var(--paper); }
+
+  .hero-photo-frame{
+    position: relative;
+  }
+  .hero-photo-frame::before{
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: -14px;
+    right: 22px;
+    bottom: 22px;
+    border: 2px solid var(--brass);
+    border-radius: var(--radius);
+    z-index: 0;
+  }
+  .hero-photo{
+    position: relative;
+    z-index: 1;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.35);
+  }
+  .hero-photo img{ width: 100%; height: auto; }
+
+  @media (max-width: 860px){
+    .hero-inner{ grid-template-columns: 1fr; padding: 48px 24px 72px; }
+    .hero-photo-frame{ order: -1; max-width: 340px; margin: 0 auto; }
+  }
+
+  /* ===== SECTION HEADERS ===== */
+  .section{ padding: 88px 0; }
+  .section-alt{ background: var(--paper-warm); }
+  .section-forest{ background: var(--forest); color: var(--paper); }
+  .section-head{
+    max-width: 640px;
+    margin-bottom: 52px;
+  }
+  .section-eyebrow{
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .section-forest .section-eyebrow{ color: var(--brass-light); }
+  .section-head h2{
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.12;
+  }
+  .section-forest .section-head h2{ color: var(--paper); }
+  .section-head p{
+    margin-top: 16px;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+  }
+  .section-forest .section-head p{ color: #D6DED8; }
+
+  /* ===== PRIORITIES ===== */
+  .priorities-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(30,59,44,0.14);
+    border: 1px solid rgba(30,59,44,0.14);
+  }
+  .priority-card{
+    background: var(--paper);
+    padding: 34px 30px;
+    position: relative;
+  }
+  .priority-card.featured{
+    background: var(--forest);
+    color: var(--paper);
+  }
+  .priority-card.featured h3{ color: var(--paper); }
+  .priority-card.featured p{ color: #D6DED8; }
+  .priority-card.featured .priority-mark{ color: var(--brass-light); }
+  .priority-mark{
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 18px;
+    color: var(--brass);
+  }
+  .priority-card h3{
+    font-size: 1.12rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .priority-card p{
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .priority-flag{
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brass-light);
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 860px){
+    .priorities-grid{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px){
+    .priorities-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ===== ABOUT ===== */
+  .about-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .quote-block{
+    border-left: 3px solid var(--brass);
+    padding-left: 24px;
+    margin: 0 0 36px;
+  }
+  .quote-block p{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--forest-deep);
+    line-height: 1.4;
+    margin: 0 0 10px;
+  }
+  .quote-block cite{
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .about-copy p{ color: var(--ink-soft); font-size: 1.02rem; }
+  .stat-strip{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(30,59,44,0.18);
+  }
+  .stat{ }
+  .stat .num{
+    font-family: 'Fraunces', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--forest-deep);
+    display: block;
+  }
+  .stat .label{
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  .timeline{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid var(--fog);
+  }
+  .timeline li{
+    position: relative;
+    padding: 0 0 28px 28px;
+  }
+  .timeline li::before{
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--brass);
+    border: 2px solid var(--paper-warm);
+  }
+  .timeline li:last-child{ padding-bottom: 0; }
+  .timeline .role{
+    font-weight: 700;
+    color: var(--forest-deep);
+    font-size: 0.98rem;
+  }
+  .timeline .meta{
+    font-size: 0.85rem;
+    color: var(--brass);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .timeline .desc{
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .edu-line{
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--fog);
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+  .edu-line strong{ color: var(--forest-deep); }
+
+  @media (max-width: 860px){
+    .about-layout{ grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ===== COMMUNITY / FAMILY ===== */
+  .community-grid{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .community-copy p{ color: #D6DED8; }
+  .community-copy ul{
+    list-style: none;
+    margin: 24px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .community-copy ul li{
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: #E7EBE3;
+  }
+  .community-copy ul li::before{
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin-top: 8px;
+    flex-shrink: 0;
+    background: var(--brass-light);
+    border-radius: 50%;
+  }
+  .photo-gallery{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .photo-placeholder{
+    aspect-ratio: 4/5;
+    border: 2px dashed rgba(247,245,239,0.35);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: rgba(247,245,239,0.55);
+    padding: 16px;
+    text-align: center;
+  }
+  .photo-placeholder:first-child{ grid-column: 1 / -1; aspect-ratio: 16/10; }
+  .photo-placeholder svg{ width: 30px; height: 30px; opacity: 0.7; }
+  .photo-placeholder span{
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 860px){
+    .community-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ===== GET INVOLVED / CONTACT ===== */
+  .involved-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+  }
+  .involved-card{
+    background: var(--white);
+    border: 1px solid rgba(30,59,44,0.14);
+    padding: 30px 26px;
+    border-radius: var(--radius);
+  }
+  .involved-card h3{
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .involved-card p{
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+  }
+  .involved-card a.btn{
+    padding: 10px 18px;
+    font-size: 0.88rem;
+  }
+
+  form.signup{
+    display: grid;
+    gap: 12px;
+  }
+  form.signup input{
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.92rem;
+    padding: 12px 14px;
+    border: 1px solid rgba(30,59,44,0.25);
+    border-radius: var(--radius);
+    background: var(--paper);
+  }
+  form.signup button{
+    font-family: 'Public Sans', sans-serif;
+  }
+  .form-note{ font-size: 0.78rem; color: var(--ink-soft); margin-top: 4px; }
+
+  @media (max-width: 860px){
+    .involved-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background: var(--forest-deep);
+    color: rgba(247,245,239,0.7);
+    padding: 48px 0 32px;
+    font-size: 0.85rem;
+  }
+  .footer-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-brand{
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--paper);
+    margin-bottom: 8px;
+  }
+  .footer-legal{
+    max-width: 460px;
+    line-height: 1.6;
+  }
+  .footer-links{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+  }
+  .footer-links a{ text-decoration: none; color: rgba(247,245,239,0.75); }
+  .footer-links a:hover{ color: var(--brass-light); }
+  .footer-bottom{
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(247,245,239,0.12);
+    font-size: 0.78rem;
+    color: rgba(247,245,239,0.5);
+  }
+
+  /* Toast for form */
+  .toast{
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--forest-deep);
+    color: var(--paper);
+    padding: 14px 22px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+    transform: translateY(120%);
+    transition: transform 0.35s ease;
+    z-index: 200;
+    border-left: 3px solid var(--brass);
+  }
+  .toast.show{ transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-name">Gareth <span class="surname">Walter</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#priorities">Priorities</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#involved">Get Involved</a></li>
+      <li><a href="#involved" class="nav-cta">Volunteer</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <svg class="hero-contours" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-50,600 C150,560 250,640 450,580 C650,520 750,600 950,560 C1050,540 1150,580 1250,560" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M-50,520 C180,470 260,560 480,500 C660,450 780,530 980,480 C1080,460 1160,500 1250,480" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M-50,440 C200,380 300,470 500,420 C680,370 800,450 1000,400 C1090,380 1170,420 1250,400" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M-50,360 C220,300 320,380 520,340 C700,300 820,370 1020,330 C1100,310 1180,350 1250,330" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M-50,280 C240,220 340,300 540,260 C720,220 840,290 1040,260 C1120,240 1190,270 1250,260" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Larkspur City Council &middot; November 3, 2026</span>
+        <h1>Larkspur raised my family.<br><em>It's time I gave back.</em></h1>
+        <p class="hero-tagline">I'm not a career politician &mdash; I'm your neighbor, with the time and experience to get things done. After 27 years solving hard problems in business, I'm bringing that same hands-on approach to City Hall.</p>
+        <span class="ballot-tag">Ballot Designation: Retired Nonprofit Founder</span>
+        <div class="hero-actions">
+          <a href="#involved" class="btn btn-primary">Get Involved</a>
+          <a href="#priorities" class="btn btn-ghost">See My Priorities</a>
+        </div>
+      </div>
+      <div class="hero-photo-frame">
+        <div class="hero-photo">
+          <img src="assets/press-photo.jpg" alt="Gareth Walter, candidate for Larkspur City Council">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="contour-divider" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,20 C150,5 250,35 450,18 C650,0 750,30 950,15 C1050,5 1150,20 1200,15 L1200,46 L0,46 Z" fill="var(--paper)"/>
+  </svg>
+
+  <!-- ===== PRIORITIES ===== -->
+  <section class="section" id="priorities">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">Where I stand</span>
+        <h2>Six priorities, one focus: a Larkspur that works for the people who live here.</h2>
+        <p>My top priority is revitalizing Magnolia Avenue &mdash; too many storefronts have sat vacant while corporate landlords wait out the market. Everything else follows from the same principle: practical results over process.</p>
+      </div>
+
+      <div class="priorities-grid">
+        <div class="priority-card featured">
+          <span class="priority-flag">Top Priority</span>
+          <svg class="priority-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6M9 12h.01M15 12h.01"/></svg>
+          <h3>Revitalizing Magnolia Avenue</h3>
+          <p>Holding corporate landlords accountable for vacant storefronts and bringing our commercial corridor back to life with policy that rewards occupancy, not speculation.</p>
+        </div>
+        <div class="priority-card">
+          <svg class="priority-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C8 6 6 10 6 13a6 6 0 0012 0c0-3-2-7-6-11z"/></svg>
+          <h3>Flood &amp; Fire Resilience</h3>
+          <p>Real infrastructure investment and preparedness &mdash; not just more studies &mdash; so our streets and homes can withstand the next flood, fire, or insurance shock.</p>
+        </div>
+        <div class="priority-card">
+          <svg class="priority-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6v11a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/><path d="M9 21V12h6v9"/></svg>
+          <h3>Housing That Fits Larkspur</h3>
+          <p>Supporting solutions that ease our housing shortage and affordability pressure while respecting the character of our neighborhoods.</p>
+        </div>
+        <div class="priority-card">
+          <svg class="priority-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5a2 2 0 012-2h8l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M14 3v6h6"/></svg>
+          <h3>Small Business Support</h3>
+          <p>Cutting the red tape that makes it hard to open, run, and keep a small business alive on our commercial streets.</p>
+        </div>
+        <div class="priority-card">
+          <svg class="priority-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 11l9 4 9-4M3 15l9 4 9-4"/></svg>
+          <h3>Strong Public Schools</h3>
+          <p>As a father with kids moving through Larkspur schools, I know what strong local schools need from the city &mdash; and I'll fight to give it to them.</p>
+        </div>
+        <div class="priority-card">
+          <svg class="priority-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20a8 8 0 100-16 8 8 0 000 16z"/><path d="M12 8v4l3 2"/></svg>
+          <h3>An Open City Hall</h3>
+          <p>Residents deserve a council that communicates clearly and often &mdash; not one you have to chase down to find out what's happening.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section section-alt" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">About Gareth</span>
+        <h2>27 years leading teams through hard problems. Now I want to put that to work for Larkspur.</h2>
+      </div>
+
+      <div class="about-layout">
+        <div>
+          <div class="quote-block">
+            <p>&ldquo;I've spent my career solving hard problems and delivering results under pressure. Larkspur needs council members who listen first and turn plans into action.&rdquo;</p>
+            <cite>&mdash; Gareth Walter</cite>
+          </div>
+          <div class="about-copy">
+            <p>After nearly three decades building and leading technology teams &mdash; including a decade at Salesforce and, most recently, as an executive at Vertafore &mdash; I retired to give my full attention to this community. I co-founded Rock Marin to bring music education to kids across Marin County, and I bring that same hands-on, get-it-done approach to city government.</p>
+            <p>As a father raising my kids here, I've watched flooding, aging infrastructure, and empty storefronts test our small town. I'm not a career politician &mdash; I'm your neighbor, with the time and experience to get things done.</p>
+          </div>
+          <div class="stat-strip">
+            <div class="stat">
+              <span class="num">27</span>
+              <span class="label">Years in technology leadership</span>
+            </div>
+            <div class="stat">
+              <span class="num">$130M+</span>
+              <span class="label">In businesses scaled at Salesforce</span>
+            </div>
+            <div class="stat">
+              <span class="num">100s</span>
+              <span class="label">Team members led through change</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <ul class="timeline">
+            <li>
+              <div class="role">Chief Revenue Officer, Vertafore</div>
+              <div class="meta">2023 &ndash; 2025</div>
+              <div class="desc">Led revenue for a leading insurance SaaS provider generating $715M in annual revenue.</div>
+            </li>
+            <li>
+              <div class="role">Group VP, North America West Sales, C3 AI</div>
+              <div class="meta">2021 &ndash; 2022</div>
+              <div class="desc">Led enterprise AI sales across the western U.S. through a period of rapid market change.</div>
+            </li>
+            <li>
+              <div class="role">Salesforce &mdash; Founding member, Financial Services vertical</div>
+              <div class="meta">2012 &ndash; 2021 &middot; 9 years</div>
+              <div class="desc">Scaled Financial Services and Healthcare/Life Sciences into $130M+ businesses; led teams of hundreds through hyper-growth and uncertainty.</div>
+            </li>
+            <li>
+              <div class="role">Co-founder, Rock Marin</div>
+              <div class="meta">Ongoing</div>
+              <div class="desc">Nonprofit bringing music education to kids across Marin County.</div>
+            </li>
+          </ul>
+          <div class="edu-line">
+            <strong>MBA, Kellogg School of Management</strong> (Northwestern), with Distinction &middot; <strong>BBA, University of Texas at Austin</strong>, Honors Program
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMUNITY & FAMILY ===== -->
+  <section class="section section-forest" id="community">
+    <div class="wrap">
+      <div class="community-grid">
+        <div class="community-copy">
+          <span class="section-eyebrow">Community &amp; Family</span>
+          <h2>When he's not at a council meeting, you'll find him on Mt. Tam &mdash; or with a guitar in hand.</h2>
+          <p>Gareth is a father of three, raising his family in Larkspur schools. Community isn't a talking point for him &mdash; it's where he actually spends his time.</p>
+          <ul>
+            <li>Co-founder of Rock Marin, supporting music education across Marin County</li>
+            <li>Longtime volunteer with the Salesforce Foundation</li>
+            <li>Volunteer, Twin Cities Community Preschool</li>
+            <li>Volunteer, FeelGood</li>
+            <li>Cycles Mt. Tam, skis, and plays guitar in his time off</li>
+          </ul>
+        </div>
+        <div class="photo-gallery">
+          <div class="photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
+            <span>Family photo coming soon</span>
+          </div>
+          <div class="photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
+            <span>Family photo coming soon</span>
+          </div>
+          <div class="photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
+            <span>Family photo coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GET INVOLVED ===== -->
+  <section class="section" id="involved">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">Get Involved</span>
+        <h2>Larkspur elections are won door by door. Here's where you come in.</h2>
+        <p>This is a grassroots, self-funded campaign &mdash; every bit of help, no matter how small, makes a real difference.</p>
+      </div>
+
+      <div class="involved-grid">
+        <div class="involved-card">
+          <h3>Volunteer</h3>
+          <p>Knock doors, hold a sign, or help at a community event between now and November 3rd.</p>
+          <a href="mailto:volunteer@electgareth.com" class="btn btn-primary">Sign Up to Help</a>
+        </div>
+        <div class="involved-card">
+          <h3>Spread the Word</h3>
+          <p>Talk to your neighbors. A personal recommendation matters more than any mailer.</p>
+          <a href="#top" class="btn btn-primary">Share This Site</a>
+        </div>
+        <div class="involved-card">
+          <h3>Stay Updated</h3>
+          <form class="signup" onsubmit="return handleSignup(event)">
+            <label for="email" style="font-size:0.85rem; font-weight:600; color: var(--ink-soft);">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            <button type="submit" class="btn btn-primary">Get Campaign Updates</button>
+            <span class="form-note">No spam &mdash; just the occasional update as election day nears.</span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">Gareth Walter</div>
+      <p class="footer-legal">Retired Nonprofit Founder, running for Larkspur City Council. Larkspur raised my family &mdash; I'd be honored to earn your vote on November 3, 2026.</p>
+    </div>
+    <div>
+      <ul class="footer-links">
+        <li><a href="#priorities">Priorities</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#involved">Get Involved</a></li>
+      </ul>
+      <a href="mailto:info@electgareth.com" style="text-decoration:none; color: rgba(247,245,239,0.75);">info@electgareth.com</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    Paid for by Gareth Walter for Larkspur City Council 2026. FPPC ID: [pending]
+  </div>
+</footer>
+
+<div class="toast" id="toast">Thanks &mdash; you're on the list!</div>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Signup form (placeholder — wire up to real email service later)
+  function handleSignup(e){
+    e.preventDefault();
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3200);
+    e.target.reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
