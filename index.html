@@ -762,7 +762,7 @@
           <p>Large corporations are letting our storefronts sit empty to protect their monopolies — leaving vulnerable neighbors to travel farther for food and basic necessities, and leaving the rest of us with blight in a town that deserves better. I'll push policy that penalizes vacancy and rewards landlords who actually fill their buildings with local businesses.</p>
         </div>
         <div class="priority-card urgent">
-          <span class="priority-flag">New Stand</span>
+          <span class="priority-flag">We Stand</span>
           <svg class="priority-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9a1 1 0 011-1h14a1 1 0 011 1v12"/><path d="M9 21v-4h6v4M9 12h.01M15 12h.01M9 16h.01M15 16h.01"/></svg>
           <h3>No Data Centers. Not Now, Not Ever</h3>
           <p>Data centers consolidate power, water, and energy resources to benefit a handful of corporations at the expense of everyday residents. I'll introduce legislation to keep them out of Larkspur and push Marin County to do the same.</p>
@@ -930,7 +930,7 @@
         <div class="involved-card">
           <h3>Volunteer</h3>
           <p>Knock doors, hold a sign, or help at a community event between now and November 3rd. This is the campaign's only currency.</p>
-          <a href="mailto:volunteer@electgareth.com" class="btn btn-primary">Sign Up to Help</a>
+          <a href="mailto:info@electgareth.com?subject=Volunteer%20Interest&body=Hi%20Gareth,%20I%20am%20interested%20in%20supporting%20your%20campaign%20for%20Larkspur%20City%20Council..." class="btn btn-primary">Sign Up to Help</a>
         </div>
         <div class="involved-card">
           <h3>Spread the Word</h3>
@@ -990,13 +990,36 @@
     });
   });
 
-  // Signup form (placeholder — wire up to real email service later)
-  function handleSignup(e){
+  // Signup form — posts to a Google Sheet via Apps Script web app.
+  const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwmDpVJRl9LwI_UmKTfZZ8PXCvO9-E-OKXrgLsnxrUoTQVnFfJvhSxi3IRAno_kynQK/exec";
+
+  async function handleSignup(e){
     e.preventDefault();
+    const email = document.getElementById('email').value;
     const toast = document.getElementById('toast');
+    const button = e.target.querySelector('button[type="submit"]');
+
+    button.disabled = true;
+    button.textContent = 'Sending…';
+
+    try{
+      await fetch(SHEET_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ email: email })
+      });
+      toast.textContent = "Thanks — you're on the list!";
+      e.target.reset();
+    } catch(err){
+      toast.textContent = "Something went wrong — please try again.";
+      console.error('Signup error:', err);
+    }
+
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 3200);
-    e.target.reset();
+    button.disabled = false;
+    button.textContent = 'Get Campaign Updates';
     return false;
   }
 </script>
