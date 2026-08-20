@@ -359,7 +359,7 @@
   .section-head--with-logo{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    align-items: center;
+    align-items: start;
     gap: 24px;
     max-width: none;
   }
@@ -370,7 +370,7 @@
   .section-head-logo{
     grid-column: 3;
     justify-self: center;
-    width: 190px;
+    width: 285px;
     height: auto;
   }
   @media (max-width: 780px){
@@ -380,7 +380,7 @@
       gap: 20px;
     }
     .section-head--with-logo .section-head-text{ grid-column: 1; }
-    .section-head-logo{ grid-column: 1; width: 150px; }
+    .section-head-logo{ grid-column: 1; width: 225px; justify-self: center; }
   }
 
   /* ===== PRIORITIES ===== */
