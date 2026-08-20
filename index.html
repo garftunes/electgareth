@@ -5,19 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gareth Walter for Larkspur City Council</title>
 <meta name="description" content="Gareth Walter is running for Larkspur City Council — a neighbor, father of three, and nonprofit leader focused on holding corporate landlords accountable, keeping data centers out of Larkspur, and open city government. Volunteer-powered, donation-free campaign.">
+<link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --forest: #1E3B2C;
-    --forest-deep: #142A1F;
-    --moss: #4C7A5A;
-    --moss-light: #7BA687;
+    --forest: #293652;
+    --forest-deep: #1B2438;
     --paper: #F7F5EF;
     --paper-warm: #F1EDE2;
-    --brass: #B98A3E;
-    --brass-light: #D9AE6C;
+    --brass: #B0904D;
+    --brass-light: #D9BE84;
     --navy: #23324A;
     --fog: #DEE1D6;
     --ink: #1B2420;
@@ -95,12 +94,17 @@
   .nav-name{
     font-family: 'Fraunces', serif;
     font-weight: 600;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: var(--forest-deep);
     text-decoration: none;
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-name img{
+    height: 44px;
+    width: auto;
+    display: block;
   }
   .nav-name .surname{ color: var(--brass); }
   .nav-links{
@@ -182,21 +186,40 @@
     background: var(--forest-deep);
     color: var(--paper);
     overflow: hidden;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
   }
-  .hero-contours{
+  .hero-bg{
     position: absolute;
     inset: 0;
-    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 65%;
+  }
+  .hero-bg::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(100deg, rgba(27,36,56,0.94) 0%, rgba(27,36,56,0.82) 32%, rgba(27,36,56,0.35) 62%, rgba(27,36,56,0.55) 100%),
+      linear-gradient(to top, rgba(27,36,56,0.55) 0%, rgba(27,36,56,0) 30%);
   }
   .hero-inner{
     position: relative;
+    z-index: 1;
+    width: 100%;
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 72px 24px 96px;
+    padding: 72px 24px 0;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 56px;
-    align-items: center;
+    gap: 24px;
+    align-items: end;
   }
   .hero-eyebrow{
     display: inline-flex;
@@ -215,11 +238,13 @@
     height: 1px;
     background: var(--brass-light);
   }
+  .hero-copy{ padding-bottom: 88px; }
   .hero h1{
     font-size: clamp(2.4rem, 4.6vw, 3.6rem);
     color: var(--paper);
     line-height: 1.06;
     font-weight: 600;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.35);
   }
   .hero h1 em{
     font-style: italic;
@@ -229,8 +254,9 @@
   .hero-tagline{
     margin-top: 22px;
     font-size: 1.1rem;
-    color: #D6DED8;
+    color: #E4E7EC;
     max-width: 46ch;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
   }
   .ballot-tag{
     display: inline-block;
@@ -270,30 +296,28 @@
 
   .hero-photo-frame{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
   }
-  .hero-photo-frame::before{
-    content: "";
-    position: absolute;
-    top: -14px;
-    left: -14px;
-    right: 22px;
-    bottom: 22px;
-    border: 2px solid var(--brass);
-    border-radius: var(--radius);
-    z-index: 0;
+  .hero-photo-frame img{
+    max-height: 560px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45));
   }
-  .hero-photo{
-    position: relative;
-    z-index: 1;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 24px 48px rgba(0,0,0,0.35);
-  }
-  .hero-photo img{ width: 100%; height: auto; }
 
   @media (max-width: 860px){
-    .hero-inner{ grid-template-columns: 1fr; padding: 48px 24px 72px; }
-    .hero-photo-frame{ order: -1; max-width: 340px; margin: 0 auto; }
+    .hero{ min-height: auto; }
+    .hero-inner{ grid-template-columns: 1fr; padding: 44px 24px 0; align-items: center; }
+    .hero-copy{ padding-bottom: 32px; text-align: center; }
+    .hero-eyebrow{ justify-content: center; }
+    .hero-tagline{ margin-left: auto; margin-right: auto; }
+    .hero-actions{ justify-content: center; }
+    .hero-photo-frame{ max-width: 300px; margin: 0 auto; }
+    .hero-photo-frame img{ max-height: 380px; }
   }
 
   /* ===== SECTION HEADERS ===== */
@@ -645,7 +669,11 @@
     font-size: 1.1rem;
     color: var(--paper);
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
+  .footer-brand img{ height: 32px; width: auto; }
   .footer-legal{
     max-width: 460px;
     line-height: 1.6;
@@ -692,7 +720,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-name">Elect<span class="surname">Gareth</span></a>
+    <a href="#top" class="nav-name"><img src="assets/logo.png" alt="Elect Gareth Walter for Larkspur City Council"> Gareth <span class="surname">Walter</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
@@ -710,18 +738,9 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="top">
-    <svg class="hero-contours" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
-      <!-- far ridge -->
-      <path d="M-50,560 C100,520 200,540 320,500 C420,468 480,500 560,470 C660,435 760,470 860,440 C960,410 1080,440 1250,420 L1250,700 L-50,700 Z" fill="var(--moss)" opacity="0.55"/>
-      <!-- Mt Tamalpais twin-peak ridge -->
-      <path d="M-50,620 C60,600 140,560 220,540 C300,520 360,480 420,420 C470,370 520,290 580,230 C610,200 630,185 650,180 C670,185 695,205 720,235 C750,270 770,300 800,290 C830,280 860,255 900,260 C960,270 1030,320 1100,380 C1160,430 1210,470 1250,490 L1250,700 L-50,700 Z" fill="var(--moss-light)" opacity="0.6"/>
-      <!-- warm rim light along the summit ridgeline -->
-      <path d="M220,540 C300,520 360,480 420,420 C470,370 520,290 580,230 C610,200 630,185 650,180 C670,185 695,205 720,235 C750,270 770,300 800,290 C830,280 860,255 900,260" fill="none" stroke="var(--brass-light)" stroke-width="4" stroke-linecap="round" opacity="0.65"/>
-      <!-- mid hill layer -->
-      <path d="M-50,650 C120,610 220,630 340,600 C460,570 540,610 640,580 C760,545 860,600 980,570 C1080,545 1180,570 1250,560 L1250,700 L-50,700 Z" fill="var(--forest)" opacity="0.8"/>
-      <!-- foreground tree line -->
-      <path d="M -20,700 L -20,690 L -7.0,644.5 L 6.1,690.0 L 19.1,652.8 L 32.2,690.0 L 45.2,628.8 L 58.3,690.0 L 71.3,656.5 L 84.3,690.0 L 97.4,634.3 L 110.4,690.0 L 123.5,642.4 L 136.5,690.0 L 149.6,657.2 L 162.6,690.0 L 175.7,635.6 L 188.7,690.0 L 201.7,658.2 L 214.8,690.0 L 227.8,639.2 L 240.9,690.0 L 253.9,656.6 L 267.0,690.0 L 280.0,655.6 L 293.0,690.0 L 306.1,639.6 L 319.1,690.0 L 332.2,620.3 L 345.2,690.0 L 358.3,654.1 L 371.3,690.0 L 384.3,649.3 L 397.4,690.0 L 410.4,629.9 L 423.5,690.0 L 436.5,614.5 L 449.6,690.0 L 462.6,632.3 L 475.7,690.0 L 488.7,641.0 L 501.7,690.0 L 514.8,613.1 L 527.8,690.0 L 540.9,657.8 L 553.9,690.0 L 567.0,618.8 L 580.0,690.0 L 593.0,646.1 L 606.1,690.0 L 619.1,653.1 L 632.2,690.0 L 645.2,654.3 L 658.3,690.0 L 671.3,645.2 L 684.3,690.0 L 697.4,620.8 L 710.4,690.0 L 723.5,651.3 L 736.5,690.0 L 749.6,632.1 L 762.6,690.0 L 775.7,629.3 L 788.7,690.0 L 801.7,642.1 L 814.8,690.0 L 827.8,633.7 L 840.9,690.0 L 853.9,657.0 L 867.0,690.0 L 880.0,657.1 L 893.0,690.0 L 906.1,650.1 L 919.1,690.0 L 932.2,627.3 L 945.2,690.0 L 958.3,639.5 L 971.3,690.0 L 984.3,644.9 L 997.4,690.0 L 1010.4,631.9 L 1023.5,690.0 L 1036.5,638.2 L 1049.6,690.0 L 1062.6,645.6 L 1075.7,690.0 L 1088.7,621.9 L 1101.7,690.0 L 1114.8,626.4 L 1127.8,690.0 L 1140.9,648.3 L 1153.9,690.0 L 1167.0,632.4 L 1180.0,690.0 L 1193.0,634.8 L 1206.1,690.0 L 1219.1,618.0 L 1232.2,690.0 L 1220,690 L 1220,700 Z" fill="#0A150F" opacity="0.85"/>
-    </svg>
+    <div class="hero-bg">
+      <img src="assets/hero-bg.jpg" alt="" aria-hidden="true">
+    </div>
     <div class="hero-inner">
       <div class="hero-copy">
         <span class="hero-eyebrow">Larkspur City Council &middot; November 3, 2026</span>
@@ -734,16 +753,10 @@
         </div>
       </div>
       <div class="hero-photo-frame">
-        <div class="hero-photo">
-          <img src="assets/gareth-profile.jpeg" alt="Gareth Walter, candidate for Larkspur City Council">
-        </div>
+        <img src="assets/gareth-cutout.png" alt="Gareth Walter, candidate for Larkspur City Council">
       </div>
     </div>
   </section>
-
-  <svg class="contour-divider" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,30 L60,22 L120,28 L200,10 L260,20 L340,6 L410,18 L480,4 L540,16 L620,8 L690,22 L760,12 L830,24 L900,6 L970,20 L1050,10 L1120,22 L1200,14 L1200,46 L0,46 Z" fill="var(--paper)"/>
-  </svg>
 
   <!-- ===== PRIORITIES ===== -->
   <section class="section" id="priorities">
