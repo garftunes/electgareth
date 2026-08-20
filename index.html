@@ -363,21 +363,29 @@
   .section-head--with-logo .section-head-text{
     max-width: 640px;
   }
-  .section-head-logo{
+  .section-head-logo-wrap{
     position: absolute;
-    top: 50%;
-    left: 83.3%;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    pointer-events: none;
+  }
+  .section-head-logo{
+    grid-column: 3;
+    justify-self: center;
+    align-self: center;
     width: 285px;
     height: auto;
   }
-  @media (max-width: 780px){
+  @media (max-width: 860px){
     .section-head--with-logo{
       text-align: center;
     }
-    .section-head-logo{
+    .section-head-logo-wrap{
       position: static;
-      transform: none;
+      display: block;
+    }
+    .section-head-logo{
       display: block;
       margin: 0 auto 20px;
       width: 225px;
@@ -387,7 +395,7 @@
   /* ===== PRIORITIES ===== */
   .priorities-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: rgba(30,59,44,0.14);
     border: 1px solid rgba(30,59,44,0.14);
@@ -795,7 +803,9 @@
   <section class="section" id="priorities">
     <div class="wrap">
       <div class="section-head section-head--with-logo">
-        <img src="assets/logo.png" alt="Elect Gareth Walter for Larkspur City Council" class="section-head-logo">
+        <div class="section-head-logo-wrap">
+          <img src="assets/logo.png" alt="Elect Gareth Walter for Larkspur City Council" class="section-head-logo">
+        </div>
         <div class="section-head-text">
           <span class="section-eyebrow">Where I stand</span>
           <h2>Six priorities, one focus: a Larkspur that works for the people.</h2>
