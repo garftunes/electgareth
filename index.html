@@ -626,6 +626,54 @@
     background: var(--brass-light);
     border-radius: 50%;
   }
+  .affiliation-list{
+    list-style: none;
+    margin: 22px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .affiliation-list li{
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: #E7EBE3;
+  }
+  .affiliation-list li::before{
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin-top: 8px;
+    flex-shrink: 0;
+    background: var(--brass-light);
+    border-radius: 50%;
+  }
+  .affiliation-list li strong{ color: var(--paper); font-weight: 600; }
+  .tags-label{
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brass-light);
+    margin: 26px 0 12px;
+  }
+  .affiliation-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .affiliation-tags .tag{
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #E7EBE3;
+    background: rgba(247,245,239,0.08);
+    border: 1px solid rgba(247,245,239,0.18);
+    padding: 6px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
   .photo-gallery{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -952,15 +1000,32 @@
         <div class="community-copy">
           <span class="section-eyebrow">Community &amp; Family</span>
           <h2>When he's not volunteering at a non-profit, you'll find him on Mt. Tam or with a guitar in hand.</h2>
-          <p>Gareth is a father of three, raising his family in Larkspur schools. Community isn't a talking point for him, it's where he actually spends his time. He believes it's time for parents raising kids here today to take an active role in shaping the town's future, not just the same familiar names.</p>
-          <ul>
-            <li>Co-founder & Co-president of Rock Marin, supporting music education across Marin County</li>
-            <li>Investment Committee and Board Member of Wendy's Wish, empowering women and supporting a world that works for all</li>
-            <li>Longtime volunteer with the Salesforce Foundation</li>
-            <li>Volunteer, Twin Cities Community Preschool</li>
-            <li>Volunteer, FeelGood</li>
-            <li>Cycles Mt. Tam, skis, and plays guitar in his time off</li>
+          <p>Gareth is a father of three, raising his family in Larkspur schools. Community isn't a talking point for him, it's where he actually spends his time. He believes it's time for parents raising kids here today to take an active role in shaping the town's future, not just the same familiar names. He remains dedicated as a volunteer and donor to many causes.</p>
+          <ul class="affiliation-list">
+            <li><strong>Rock Marin</strong> &mdash; Co-founder &amp; Co-president, supporting music education across Marin County</li>
+            <li><strong>Wendy's Wish</strong> &mdash; Investment Committee &amp; Board Member, empowering women and supporting a world that works for all</li>
           </ul>
+          <span class="tags-label">Also volunteers with &amp; supports</span>
+          <div class="affiliation-tags">
+            <span class="tag">The Canal Alliance</span>
+            <span class="tag">Homeward Bound of Marin</span>
+            <span class="tag">Community Action Marin</span>
+            <span class="tag">GLIDE</span>
+            <span class="tag">Marin Foster Care Association</span>
+            <span class="tag">CA For Justice Education</span>
+            <span class="tag">Salesforce Foundation</span>
+            <span class="tag">Twin Cities Community Preschool</span>
+            <span class="tag">The Pachamama Alliance</span>
+            <span class="tag">The Hunger Project</span>
+            <span class="tag">FeelGood</span>
+            <span class="tag">Union of Concerned Scientists</span>
+            <span class="tag">Rainforest Foundation</span>
+            <span class="tag">Center for Domestic Peace</span>
+            <span class="tag">Surfrider Foundation</span>
+            <span class="tag">A New Way of Life Re-entry</span>
+            <span class="tag">Earthjustice</span>
+            <span class="tag">ARC Southeast</span>
+          </div>
         </div>
         <div class="photo-gallery">
           <div class="photo-placeholder">
