@@ -201,6 +201,9 @@
     object-fit: cover;
     object-position: center 65%;
   }
+  @media (min-width: 861px){
+    .hero-bg img{ object-position: center 15%; }
+  }
   .hero-bg::after{
     content: "";
     position: absolute;
@@ -350,6 +353,36 @@
     color: var(--ink-soft);
   }
   .section-forest .section-head p{ color: #D6DED8; }
+  .community-copy h2{ color: var(--paper); }
+  .community-copy > p{ color: #D6DED8; }
+
+  .section-head--with-logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: none;
+  }
+  .section-head--with-logo .section-head-text{
+    max-width: 640px;
+    order: 1;
+  }
+  .section-head-logo{
+    order: 2;
+    width: 130px;
+    height: auto;
+    flex-shrink: 0;
+  }
+  @media (max-width: 780px){
+    .section-head--with-logo{
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    .section-head--with-logo .section-head-text{ order: 2; }
+    .section-head-logo{ order: 1; width: 100px; }
+  }
 
   /* ===== PRIORITIES ===== */
   .priorities-grid{
@@ -761,10 +794,13 @@
   <!-- ===== PRIORITIES ===== -->
   <section class="section" id="priorities">
     <div class="wrap">
-      <div class="section-head">
-        <span class="section-eyebrow">Where I stand</span>
-        <h2>Six priorities, one focus: a Larkspur that works for the people.</h2>
-        <p>Too many storefronts sit empty while corporate landlords flex their monopolies. That ends. Everything below follows the same principle: practical results over process, and this town's interests over big business.</p>
+      <div class="section-head section-head--with-logo">
+        <img src="assets/logo.png" alt="Elect Gareth Walter for Larkspur City Council" class="section-head-logo">
+        <div class="section-head-text">
+          <span class="section-eyebrow">Where I stand</span>
+          <h2>Six priorities, one focus: a Larkspur that works for the people.</h2>
+          <p>Too many storefronts sit empty while corporate landlords flex their monopolies. That ends. Everything below follows the same principle: practical results over process, and this town's interests over big business.</p>
+        </div>
       </div>
 
       <div class="priorities-grid">
